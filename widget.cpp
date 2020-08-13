@@ -84,6 +84,7 @@ void Widget::on_pbReset_clicked()
 {
     money=0;
     ui->lcdNumber->display(money);
+    lightManager();
     QMessageBox m;
     m.information(nullptr,"BoB 자판기","초기화 되었습니다");
 }
