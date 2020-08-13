@@ -20,6 +20,7 @@ public:
     void turnOn();
     void turnOut();
     void lightManager();
+
 private slots:
     void on_pb10_1_clicked();
 
