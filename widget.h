@@ -17,7 +17,7 @@ public:
     int money {0};
     void changeMoney(int diff);
     void subMoney(int diff);
-    void turnOn();
+    void turnOn(int diff);
     void turnOut();
     void lightManager();
 

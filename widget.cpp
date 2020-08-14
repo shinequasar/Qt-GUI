@@ -17,20 +17,44 @@ Widget::~Widget()
 
 int money = 0;
 
-void Widget::turnOn(){
-    ui->pbcoffee->setEnabled(true);
-    ui->pbTea->setEnabled(true);
-    ui->pbMilk->setEnabled(true);
+void Widget::turnOn(int price){
+    switch (price) {
+       case 100:
+           ui->pbcoffee->setEnabled(true);
+           break;
+       case 150:
+           ui->pbTea->setEnabled(true);
+           break;
+        case 200:
+            ui->pbMilk->setEnabled(true);
+            break;
+    }
 }
 void Widget::turnOut(){
-    ui->pbcoffee->setEnabled(false);
-    ui->pbTea->setEnabled(false);
-    ui->pbMilk->setEnabled(false);
-}
+           ui->pbcoffee->setEnabled(false);
+           ui->pbTea->setEnabled(false);
+           ui->pbMilk->setEnabled(false);
+    }
+
+
 
 void Widget::lightManager(){
-    if(money>0) turnOn();
-    else turnOut();
+    if(money<100) turnOut();
+    else if(money<150) {
+        turnOut();
+        turnOn(100);
+    }
+    else if(money<200) {
+        turnOut();
+        turnOn(100);
+        turnOn(150);
+    }
+    else if(money>=200) {
+        turnOut();
+        turnOn(100);
+        turnOn(150);
+        turnOn(200);
+    }
 }
 
 void Widget::changeMoney(int price){
